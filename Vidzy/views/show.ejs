@@ -1,0 +1,23 @@
+<%- include ('partials/header') %> 
+<style>
+  .card-img-top {
+    max-width: 28rem;
+    max-height: 28rem;
+  }
+</style>
+<div class="card mx-auto mt-3" style="width: 28rem;">
+  <img class="card-img-top" src="/images/<%= video.image %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= video.title %></h5>
+    <h5><%= video.genre %></h5>
+    <p class="card-text"><%= video.description %></p>
+  </div>
+  <div class="card-body">
+    
+    <form action="/videos/<%= video._id %>?_method=DELETE" method="POST" class="form-inline">
+      <a class="btn btn-warning card-link" href="/videos/<%= video._id %>/edit" role="button"> Edit</a>
+      <button type="submit" class="btn btn-danger card-link">Delete</button>
+    </form>
+  </div>
+</div>
+<%- include ('partials/footer') %>

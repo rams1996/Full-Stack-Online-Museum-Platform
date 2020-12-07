@@ -1,0 +1,32 @@
+<%- include ('partials/header') %> 
+<div class="container">
+  <h1 class="text-white">Enter movie details</h1>
+  <form action="/videos" method="POST">
+    <div class="form-group">
+      <input type="text" name="title" class="form-control" placeholder="Movie Title">
+    </div>
+    <div class="form-group">
+      <label for="genre" class="p-1">Genre</label>
+      <select class="custom-select  p-1" name="genre">
+        <option value="All" selected>All</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Action">Action</option>
+        <option value="Animation">Animation</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="text" name="image" class="form-control" placeholder="Image URL">
+    </div>
+    <div class="form-group">
+      <textarea name="desc" class="form-control" placeholder="Movie Description"></textarea>
+    </div>
+    <div class="form-group form-inline">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/" class="ml-3">Cancel</a>
+    </div>
+  </form>
+ 
+</div> 
+<%- include ('partials/footer') %>

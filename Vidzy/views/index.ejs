@@ -1,0 +1,40 @@
+<%- include ('partials/header') %> <div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <h1 class="text-white">Vidzy App</h1>
+    </div>
+    <div class="col-6">
+      <form action="/videos?_method=SEARCH" class="form-inline" method="POST">
+        <div class="form-group">
+          <label for="movieTitle" class="text-white">Title</label>
+          <input type="text" name="movieTitle" class="form-control m-2 p-1" placeholder="Enter Movie title"/>
+        </div>
+        <div class="form-group ml-2">
+          <label for="movieGenre" class="p-1 text-white">Genre</label>
+          <select class="custom-select  p-1" name="movieGenre">
+            <option value="All" selected>All</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Action">Action</option>
+            <option value="Animation">Animation</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary ml-3">Search</button>
+      </form>
+    </div>
+    <div class="col-3"> <a class="btn btn-primary btn-lg m-2" href="/videos/new" role="button"> Add new video</a></div>
+  </div>
+  <div class="row bg-dark">
+    <div class="card-deck">
+      <% videos.forEach(function(video){ %> <div class="card">
+        <img class="card-img-top" src="images/<%= video.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= video.title %></h5>
+          <a href="videos/<%= video._id %>" class="card-link">Read More...</a>
+        </div>
+      </div> <% }); %> 
+    </div>
+  </div>
+</div> 
+<%- include ('partials/footer') %>
